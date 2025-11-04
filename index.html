@@ -2,25 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>! SADAF ~#</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Share Tech Mono', monospace;
-      scroll-behavior: smooth;
-    }
-    html, body {
-      height: 100%;
-      background: #000;
-      color: #e9f9f7;
-      overflow-x: hidden;
-    }
+    /* Reset & base styles */
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Share Tech Mono',monospace}
+    html, body { height: 100%; background:#000; color:#e9f9f7; }
 
-    /* Background Video */
+    /* Background video */
     .video-bg {
       position: fixed;
       inset: 0;
@@ -28,154 +18,126 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
-      filter: brightness(0.45) saturate(1.2);
+      filter: brightness(.45);
     }
 
     /* Header */
     header {
       padding: 48px 20px 18px;
       text-align: center;
-      position: relative;
-      z-index: 1;
     }
+
     .logo-title {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 14px;
+      flex-wrap: wrap;
     }
+
     .logo-title img {
       width: 76px;
       height: 76px;
       border-radius: 50%;
       border: 2px solid #00ffe0;
       object-fit: cover;
-      box-shadow: 0 0 22px #00ffe022;
-      animation: pulse 2s infinite;
+      box-shadow: 0 0 18px #00ffe0;
     }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 22px #00ffe022; }
-      50% { box-shadow: 0 0 42px #00ffe088; }
-    }
+
     h1 {
       font-size: 3rem;
       color: #00ffe0;
-      text-shadow: 0 0 26px #00ffe0;
+      text-shadow: 0 0 26px #00ffe0, 0 0 50px #0ff;
     }
+
     nav {
       margin-top: 18px;
     }
+
     nav a {
       color: #dff;
       margin: 0 12px;
       text-decoration: none;
       font-weight: 600;
-      position: relative;
-    }
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 0;
-      height: 2px;
-      background: #00ffe0;
       transition: 0.3s;
     }
-    nav a:hover::after {
-      width: 100%;
-    }
+
     nav a:hover {
       color: #00ffe0;
-      text-shadow: 0 0 8px #00ffe0;
+      text-shadow: 0 0 12px #0ff;
     }
 
-    /* Main Container */
+    /* Main container */
     .container {
       max-width: 1000px;
       margin: 36px auto;
       padding: 0 20px 80px;
-      position: relative;
-      z-index: 1;
     }
+
     section {
       margin-bottom: 40px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeIn 0.9s ease forwards;
     }
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+
     h2 {
       color: #00ffe0;
       margin-bottom: 12px;
       font-size: 1.8rem;
-      text-shadow: 0 0 12px #00ffe0;
-    }
-    .card {
-      background: rgba(0, 255, 224, 0.04);
-      padding: 16px;
-      border-radius: 10px;
-      border: 1px solid rgba(0, 255, 224, 0.12);
-      box-shadow: 0 0 20px rgba(0, 255, 224, 0.05);
-      transition: 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 28px rgba(0, 255, 224, 0.15);
-    }
-    p {
-      color: #dfe;
-      line-height: 1.6;
-    }
-    ul {
-      margin-left: 18px;
-      margin-top: 10px;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 10px 20px;
-      border-radius: 40px;
-      background: #00ffe0;
-      color: #001;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 6px 18px rgba(0, 255, 224, 0.25);
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: #00ffe8;
-      box-shadow: 0 0 28px #00ffe055;
-    }
-    .links a {
-      display: inline-block;
-      margin-right: 16px;
-      color: #bff;
-      text-decoration: none;
-    }
-    .links a:hover {
-      color: #00ffe0;
-      text-shadow: 0 0 8px #00ffe0;
-    }
-    footer {
-      padding: 28px;
-      text-align: center;
-      color: #98a;
-      border-top: 1px solid rgba(0,255,224,0.06);
-      box-shadow: 0 -2px 20px #00ffe010;
-      background: rgba(0, 0, 0, 0.5);
+      text-shadow: 0 0 8px #0ff;
     }
 
-    @media (max-width: 640px) {
-      h1 { font-size: 2.1rem; }
-      .logo-title img { width: 60px; height: 60px; }
-      .container { padding: 0 14px 60px; }
+    .card {
+      background: rgba(0,0,0,0.45);
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid #00ffe0;
+      box-shadow: 0 4px 20px rgba(0,255,224,0.12);
+      backdrop-filter: blur(4px);
     }
+
+    p { color:#dfe; line-height:1.6; }
+    ul { margin-left:18px; margin-top:10px; }
+    .btn {
+      display:inline-block;
+      margin-top:12px;
+      padding:10px 20px;
+      border-radius:40px;
+      background:#00ffe0;
+      color:#001;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow:0 6px 18px rgba(0,255,224,0.12);
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow:0 8px 20px rgba(0,255,224,0.2);
+    }
+
+    .links a {
+      display:inline-block;
+      margin-right:16px;
+      color:#bff;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .links a:hover { color:#0ff; text-shadow:0 0 8px #0ff; }
+
+    footer {
+      padding:28px;
+      text-align:center;
+      color:#98a;
+      border-top:1px solid rgba(0,255,224,0.06);
+    }
+
+    /* Responsive */
+    @media (max-width:640px){
+      h1{font-size:2.1rem}
+      nav a { margin: 0 8px; font-size:0.9rem; }
+      .logo-title { flex-direction: column; gap: 8px; }
+    }
+
   </style>
 </head>
 <body>
@@ -183,7 +145,6 @@
   <!-- Background video -->
   <video class="video-bg" autoplay muted loop playsinline>
     <source src="https://motionbgs.com/media/1948/naruto-and-sasuke-legends.960x540.mp4" type="video/mp4">
-    Your browser does not support the video tag.
   </video>
 
   <header>
@@ -191,6 +152,7 @@
       <img src="New Project [83BF63D].gif" alt="Sadaf Profile">
       <h1>SADAF</h1>
     </div>
+
     <nav>
       <a href="#about">About</a>
       <a href="#youtube">YouTube</a>
@@ -199,6 +161,7 @@
   </header>
 
   <main class="container">
+
     <!-- ABOUT -->
     <section id="about">
       <h2>About Me</h2>
@@ -207,8 +170,11 @@
         <p><strong>Real name:</strong> Anonymous</p>
         <p><strong>Age:</strong> 10+ & -18</p>
         <p><strong>Height:</strong> 6 ft+</p>
-        <p><strong>About:</strong> I am <strong>Sadaf</strong> — a creative technologist, web developer, and digital content creator. I focus on building web projects, editing creative videos, and producing entertaining gaming content. My primary tools include HTML, CSS, Python, and Linux, and I’m currently learning more about Java.</p>
+
+        <p><strong>About:</strong> I am <strong>Sadaf</strong> — a creative technologist, web developer and digital content creator. I focus on building web projects, editing creative videos and producing entertaining gaming content. My primary tools include HTML, CSS, Python, Linux, and currently learning Java.</p>
+
         <p><strong>Founder:</strong> % SDF &gt;..</p>
+
         <p><strong>Skills:</strong></p>
         <ul>
           <li>Web Development (HTML, CSS, basic JavaScript)</li>
@@ -217,7 +183,8 @@
           <li>Gaming & community building</li>
           <li>Cybersecurity interest — ethical & permission-based research only</li>
         </ul>
-        <p><strong>Interests:</strong> Building tools, tutorials, creative projects, and growing a positive community.</p>
+
+        <p><strong>Interests:</strong> Building tools, tutorials, creative projects and growing a positive community.</p>
       </div>
     </section>
 
@@ -225,7 +192,7 @@
     <section id="youtube">
       <h2>My YouTube Channel</h2>
       <div class="card">
-        <p>Subscribe to my channel for gaming videos, tutorials, and creative content. I post gameplay, tech guides, and behind-the-scenes edits — all made to help and entertain the community.</p>
+        <p>Subscribe to my channel for gaming videos, tutorials and creative content. I post gameplay, tech guides and behind-the-scenes edits — all made to help and entertain the community.</p>
         <a class="btn" href="https://youtube.com/@its_sadaf_officail?si=v2S1qy0Lue5B8qsP" target="_blank" rel="noopener noreferrer">Visit @its_sadaf_officail</a>
       </div>
     </section>
@@ -237,10 +204,11 @@
         <p>If you want to collaborate or hire for legitimate services, reach out via:</p>
         <div class="links">
           <p><strong>Discord ID:</strong> <code>sadaf_am</code></p>
-          <p><strong>Discord Server:</strong> <a href="https://discord.gg/2TZsNTzGFY" target="_blank" rel="noopener noreferrer">ਹ〇工Ɲ</a></p>
+          <p><strong>Discord Server:</strong> <a href="https://discord.gg/2TZsNTzGFY" target="_blank" rel="noopener noreferrer"> ਹ〇工Ɲ </a></p>
           <p><strong>Email:</strong> <a href="mailto:sadaf.exo69@gmail.com">sadaf.exo69@gmail.com</a></p>
-          <p><strong>WhatsApp:</strong> <a href="https://wa.me/880178xxxxxxx" target="_blank">+880 178xxxxxxx</a></p>
+          <p><strong>WhatsApp:</strong> +880 178xxxxxxx</p>
         </div>
+
         <p><strong>Available services (legitimate & ethical):</strong></p>
         <ul>
           <li>Website design & development</li>
@@ -248,11 +216,13 @@
           <li>Custom domain & deployment assistance</li>
           <li>Video editing & content production</li>
           <li>Community growth & moderation services</li>
-          <li>Ethical security testing (with explicit permission only)</li>
+          <li>Ethical security testing (only with explicit permission)</li>
         </ul>
-        <p style="margin-top:10px;color:#ffd">Note: I do not support or provide services for illegal activity, account theft, or harmful acts. All security work is performed ethically and with authorization.</p>
+
+        <p style="margin-top:10px;color:#ffd">Note: I do not support illegal activity, account theft, or harmful acts. All security work is performed ethically and with authorization.</p>
       </div>
     </section>
+
   </main>
 
   <footer>
